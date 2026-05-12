@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HACK DAYS — OPERATIONAL DOSSIER</title>
+
+    <!-- Premium Engineering Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#faf9f6',
+                        ink: '#1e1b4b',
+                        accent: '#f97316',
+                        indigo: '#4338ca',
+                        neutral: '#5b6475'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'struct': '4px 4px 0px 0px rgba(30, 27, 75, 1)',
+                        'struct-sm': '2px 2px 0px 0px rgba(30, 27, 75, 1)',
+                        'struct-hover': '6px 6px 0px 0px rgba(30, 27, 75, 1)',
+                        'accent': '4px 4px 0px 0px rgba(249, 115, 22, 1)',
+                    },
+                    backgroundImage: {
+                        'grid-pattern': 'linear-gradient(to right, rgba(30, 27, 75, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(30, 27, 75, 0.04) 1px, transparent 1px)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body,
+        html {
+            height: 100%;
+            background-color: #faf9f6;
+            color: #1e1b4b;
+            overflow: hidden;
+            /* Lock body, use custom scroll container */
+        }
+
+        /* 
+         * ENGINEERED MECHANICAL SCROLLBAR 
+         * Precision machined track, tactical grip thumb.
+         */
+        .scroll-container {
+            height: 100vh;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            width: 24px;
+            background-color: #faf9f6;
+            border-left: 1px solid rgba(30, 27, 75, 0.15);
+        }
+
+        .scroll-container::-webkit-scrollbar-track {
+            background-color: #faf9f6;
+            /* Engineering hash marks */
+            background-image: linear-gradient(0deg, transparent 95%, rgba(30, 27, 75, 0.2) 95%);
+            background-size: 100% 16px;
+            border-left: 1px solid rgba(30, 27, 75, 0.15);
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb {
+            background-color: #1e1b4b;
+            border: 3px solid #faf9f6;
+            border-left: 5px solid #faf9f6;
+            /* Machined grip texture */
+            background-image: repeating-linear-gradient(-45deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(250, 249, 246, 0.2) 2px,
+                    rgba(250, 249, 246, 0.2) 4px);
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb:hover {
+            background-color: #f97316;
+            /* Accent Orange */
+        }
+
+        /* Grain Substrate */
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.4;
+            background: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+            mix-blend-mode: multiply;
+        }
+
+        /* Base Utilities */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-position: center top;
+        }
+
+        .border-structural {
+            border: 1px solid rgba(30, 27, 75, 0.15);
+        }
+
+        .border-thick {
+            border: 2px solid #1e1b4b;
+        }
+
+        .text-balance {
+            text-wrap: balance;
+        }
+
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Interactive Bento States */
+        .bento-card {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bento-card:hover {
+            transform: translateY(-4px) translateX(-4px);
+            box-shadow: 6px 6px 0px 0px rgba(30, 27, 75, 1);
+        }
+
+        /* Grayscale Photo Shift */
+        .profile-img {
+            filter: grayscale(100%) contrast(1.1);
+            transition: filter 0.5s ease;
+        }
+
+        .group:hover .profile-img {
+            filter: grayscale(0%) contrast(1);
+        }
+
+        /* Structural Crosshairs */
+        .crosshair {
+            position: fixed;
+            width: 24px;
+            height: 24px;
+            pointer-events: none;
+            z-index: 40;
+        }
+
+        .crosshair::before,
+        .crosshair::after {
+            content: '';
+            position: absolute;
+            background: rgba(30, 27, 75, 0.4);
+        }
+
+        .crosshair::before {
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+        }
+
+        .crosshair::after {
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+        }
+
+        .ch-tl {
+            top: 20px;
+            left: 20px;
+        }
+
+        .ch-br {
+            bottom: 20px;
+            right: 44px;
+            /* Account for scrollbar */
+        }
+
+        /* Timeline Connector */
+        .timeline-rail {
+            position: absolute;
+            left: 120px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-image: repeating-linear-gradient(0deg, #1e1b4b, #1e1b4b 4px, transparent 4px, transparent 8px);
+            opacity: 0.3;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-rail {
+                left: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-grid bg-grid-pattern selection:bg-accent selection:text-white">
+
+    <div class="grain-overlay"></div>
+    <div class="crosshair ch-tl"></div>
+    <div class="crosshair ch-br"></div>
+
+    <div class="scroll-container" id="scroll-track">
+
+        <!-- Sticky Premium Header -->
+        <header class="sticky top-0 z-40 bg-bg/90 backdrop-blur-md border-b border-structural w-full">
+            <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+                    <div class="font-display font-bold tracking-tight leading-none text-ink text-sm">
+                        HACK DAYS<br><span class="text-[10px] text-neutral font-mono uppercase">Operational
+                            Dossier</span>
+                    </div>
+                </div>
+
+                <nav class="hidden md:flex items-center gap-8 font-mono text-xs font-medium text-neutral">
+                    <a href="#briefing"
+                        class="hover:text-ink hover:underline decoration-accent underline-offset-4 transition-all">01.
+                        Briefing</a>
+                    <a href="#timeline"
+                        class="hover:text-ink hover:underline decoration-accent underline-offset-4 transition-all">02.
+                        Timeline</a>
+                    <a href="#personnel"
+                        class="hover:text-ink hover:underline decoration-accent underline-offset-4 transition-all">03.
+                        Operators</a>
+                    <a href="#logistics"
+                        class="hover:text-ink hover:underline decoration-accent underline-offset-4 transition-all">04.
+                        Logistics</a>
+                </nav>
+
+                <a href="#"
+                    class="px-4 py-1.5 bg-accent text-white font-mono text-xs font-bold border-thick shadow-accent hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_0px_rgba(249,115,22,1)] transition-all flex items-center gap-2">
+                    REGISTER
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Dossier Content -->
+        <main class="max-w-5xl mx-auto px-6 pb-32 pt-12">
+
+            <!-- SECTION 01: BRIEFING (HOME) -->
+            <section id="briefing" class="pt-8 pb-16 border-b border-structural">
+                <div class="flex items-center justify-between font-mono text-xs text-neutral mb-8">
+                    <div class="flex gap-4">
+                        <span class="border border-structural px-2 py-1 bg-white">ID: ASOC-88</span>
+                        <span class="border border-structural px-2 py-1 bg-white hidden sm:inline-block">CAPACITY:
+                            250+</span>
+                    </div>
+                    <div>STATUS: <span class="text-accent font-bold">AWAITING_INPUT</span><span
+                            class="cursor-blink bg-accent w-1.5 h-3 inline-block align-middle ml-1"></span></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+                    <div class="lg:col-span-7 flex flex-col justify-center">
+                        <h1
+                            class="font-display font-bold text-6xl md:text-7xl leading-[0.85] tracking-tighter mb-6 text-balance uppercase">
+                            Where Code <br>
+                            <span class="text-transparent" style="-webkit-text-stroke: 2px #1e1b4b;">Meets Chaos</span>
+                        </h1>
+                        <p class="font-sans text-neutral text-lg mb-8 max-w-md">
+                            An 8-hour MLH Hack Day designed for builders, creators, and innovators. Executed jointly by
+                            AWS Student Builder Group and OSCode Atria Chapter.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-4 font-mono text-xs mb-8">
+                            <div
+                                class="border border-structural p-4 bg-white relative overflow-hidden group hover:border-ink transition-colors">
+                                <div class="text-ink font-bold mb-1">> BUILD</div>
+                                <div class="text-neutral">Construct without constraints using AWS.</div>
+                            </div>
+                            <div
+                                class="border border-structural p-4 bg-white relative overflow-hidden group hover:border-ink transition-colors">
+                                <div class="text-ink font-bold mb-1">> DEPLOY</div>
+                                <div class="text-neutral">Execute code directly to production.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HUD Blueprint Artifact -->
+                    <div
+                        class="lg:col-span-5 relative h-[300px] lg:h-auto border-thick bg-white p-6 bento-card flex flex-col justify-between overflow-hidden">
+                        <div class="absolute inset-0 bg-grid bg-grid-pattern opacity-30 pointer-events-none z-0"></div>
+                        <div
+                            class="font-mono text-xs text-indigo border border-indigo px-2 py-1 inline-block w-max bg-indigo/5 z-10">
+                            SYS_DIAGRAM</div>
+
+                        <!-- SVG Structural Node -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-80 z-0">
+                            <svg width="100%" height="100%" viewBox="0 0 300 300" fill="none"
+                                class="animate-[spin_40s_linear_infinite]">
+                                <circle cx="150" cy="150" r="100" stroke="#1e1b4b" stroke-width="1"
+                                    stroke-dasharray="2 4" />
+                                <circle cx="150" cy="150" r="60" stroke="#4338ca" stroke-width="2" opacity="0.3" />
+                                <path d="M150 50 L150 250" stroke="#1e1b4b" stroke-width="1" stroke-dasharray="2 2"
+                                    opacity="0.5" />
+                                <path d="M50 150 L250 150" stroke="#1e1b4b" stroke-width="1" stroke-dasharray="2 2"
+                                    opacity="0.5" />
+                                <circle cx="150" cy="50" r="4" fill="#f97316" />
+                                <circle cx="250" cy="150" r="4" fill="#1e1b4b" />
+                            </svg>
+                        </div>
+
+                        <div
+                            class="mt-auto font-mono text-xs text-neutral z-10 flex justify-between border-t border-structural pt-2">
+                            <span>NODE: MLH_ACTIVE</span>
+                            <span class="text-ink font-bold">V.1.0</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION 02: TIMELINE -->
+            <section id="timeline" class="pt-24 pb-16 border-b border-structural relative">
+                <h2 class="font-display text-3xl font-bold uppercase mb-16 inline-block border-b-2 border-ink pb-2">02
+                    // Operational Timeline</h2>
+
+                <div class="relative">
+                    <div class="timeline-rail"></div>
+
+                    <!-- Entry 1 -->
+                    <div class="relative grid grid-cols-1 md:grid-cols-[120px_1fr] gap-6 md:gap-12 mb-10 pl-8 md:pl-0">
+                        <div
+                            class="absolute left-[-5px] md:left-[115px] top-2 w-3 h-3 bg-white border-2 border-ink rounded-full z-10">
+                        </div>
+                        <div class="font-mono text-sm font-bold text-ink md:text-right pt-1">08:00 AM</div>
+                        <div
+                            class="bg-white border border-structural p-6 shadow-sm hover:shadow-struct hover:-translate-y-1 hover:-translate-x-1 transition-all border-l-4 border-l-ink">
+                            <h3 class="font-display text-xl font-bold uppercase mb-2">Check-in & Registration</h3>
+                            <p class="font-sans text-sm text-neutral">Welcome hackers, distribute physical access kits,
+                                and finalize squad formations. Sector doors open.</p>
+                        </div>
+                    </div>
+
+                    <!-- Entry 2 -->
+                    <div class="relative grid grid-cols-1 md:grid-cols-[120px_1fr] gap-6 md:gap-12 mb-10 pl-8 md:pl-0">
+                        <div
+                            class="absolute left-[-5px] md:left-[115px] top-2 w-3 h-3 bg-accent border-2 border-bg rounded-full z-10 animate-pulse shadow-[0_0_8px_rgba(249,115,22,0.6)]">
+                        </div>
+                        <div class="font-mono text-sm font-bold text-accent md:text-right pt-1">09:00 AM</div>
+                        <div class="bg-ink border-thick text-white p-6 shadow-struct relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-16 h-16 bg-accent/20 rounded-bl-full"></div>
+                            <h3 class="font-display text-xl font-bold uppercase mb-2">AWS + Open Source Workshop</h3>
+                            <p class="font-sans text-sm text-neutral-300">Led by Darshan B (AWS SBG Leader). Briefing on
+                                deployment architecture and repository management.</p>
+                            <div
+                                class="mt-4 font-mono text-[10px] bg-accent text-white px-2 py-1 inline-block font-bold uppercase">
+                                MANDATORY_BRIEFING</div>
+                        </div>
+                    </div>
+
+                    <!-- Entry 3 -->
+                    <div class="relative grid grid-cols-1 md:grid-cols-[120px_1fr] gap-6 md:gap-12 mb-10 pl-8 md:pl-0">
+                        <div
+                            class="absolute left-[-5px] md:left-[115px] top-2 w-3 h-3 bg-white border-2 border-indigo rounded-full z-10">
+                        </div>
+                        <div class="font-mono text-sm font-bold text-indigo md:text-right pt-1">09:30 AM</div>
+                        <div
+                            class="bg-white border-thick border-indigo p-6 shadow-sm hover:shadow-struct hover:-translate-y-1 hover:-translate-x-1 transition-all bento-card">
+                            <h3 class="font-display text-xl font-bold uppercase mb-2">Official Hacking Sprints</h3>
+                            <p class="font-sans text-sm text-neutral">Mainframe unlocked. Uninterrupted execution.
+                                Mentors deployed on the floor.</p>
+                        </div>
+                    </div>
+
+                    <!-- Entry 4 -->
+                    <div class="relative grid grid-cols-1 md:grid-cols-[120px_1fr] gap-6 md:gap-12 mb-10 pl-8 md:pl-0">
+                        <div
+                            class="absolute left-[-5px] md:left-[115px] top-2 w-3 h-3 bg-white border-2 border-ink rounded-full z-10">
+                        </div>
+                        <div class="font-mono text-sm font-bold text-ink md:text-right pt-1">05:00 PM</div>
+                        <div
+                            class="bg-white border border-structural p-6 shadow-sm hover:shadow-struct hover:-translate-y-1 hover:-translate-x-1 transition-all border-l-4 border-l-neutral">
+                            <h3 class="font-display text-xl font-bold uppercase mb-2">Execution Review & Closing</h3>
+                            <p class="font-sans text-sm text-neutral">Demo round. Code evaluation by handlers. Swag
+                                allocation and final sign-off.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION 03: PERSONNEL -->
+            <section id="personnel" class="pt-24 pb-16 border-b border-structural">
+                <h2 class="font-display text-3xl font-bold uppercase mb-12 inline-block border-b-2 border-ink pb-2">03
+                    // Handlers & Operators</h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+                    <!-- ID Badge 1 -->
+                    <div class="bg-white border-thick p-4 bento-card group">
+                        <div
+                            class="h-40 bg-neutral/10 mb-4 border border-structural relative overflow-hidden flex items-center justify-center">
+                            <!-- Abstract Photo Placeholder -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-indigo/30 to-transparent profile-img">
+                                <svg width="100%" height="100%">
+                                    <pattern id="dot" width="8" height="8" patternUnits="userSpaceOnUse">
+                                        <circle cx="2" cy="2" r="1" fill="#1e1b4b" opacity="0.3" />
+                                    </pattern>
+                                    <rect width="100%" height="100%" fill="url(#dot)" />
+                                </svg>
+                            </div>
+                            <div
+                                class="font-mono text-[10px] text-ink absolute top-2 right-2 border border-ink px-1 bg-white">
+                                IMG_01</div>
+                        </div>
+                        <h4 class="font-display font-bold text-xl uppercase leading-none mb-1">Darshan B</h4>
+                        <div class="font-mono text-xs text-indigo mb-4">AWS SBG Leader</div>
+                        <div
+                            class="border-t border-structural pt-2 flex justify-between font-mono text-[10px] text-neutral">
+                            <span>CLR: LEVEL_5</span>
+                            <span>ROLE: ARCHITECT</span>
+                        </div>
+                    </div>
+
+                    <!-- ID Badge 2 -->
+                    <div class="bg-white border-thick p-4 bento-card group">
+                        <div
+                            class="h-40 bg-neutral/10 mb-4 border border-structural relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent profile-img">
+                                <svg width="100%" height="100%">
+                                    <pattern id="line" width="10" height="10" patternUnits="userSpaceOnUse">
+                                        <path d="M10 0L0 10" stroke="#1e1b4b" stroke-width="0.5" opacity="0.4" />
+                                    </pattern>
+                                    <rect width="100%" height="100%" fill="url(#line)" />
+                                </svg>
+                            </div>
+                            <div
+                                class="font-mono text-[10px] text-ink absolute top-2 right-2 border border-ink px-1 bg-white">
+                                IMG_02</div>
+                        </div>
+                        <h4 class="font-display font-bold text-xl uppercase leading-none mb-1">OSCode Core</h4>
+                        <div class="font-mono text-xs text-neutral mb-4">Atria Chapter</div>
+                        <div
+                            class="border-t border-structural pt-2 flex justify-between font-mono text-[10px] text-neutral">
+                            <span>CLR: LEVEL_4</span>
+                            <span>ROLE: LOGISTICS</span>
+                        </div>
+                    </div>
+
+                    <!-- Ghost Node -->
+                    <div
+                        class="border-2 border-dashed border-structural p-4 flex flex-col items-center justify-center min-h-[250px] bg-white/50 opacity-60">
+                        <div class="font-mono text-3xl text-neutral mb-2">+</div>
+                        <div class="font-mono text-xs text-neutral">UNASSIGNED_NODE</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION 04: LOGISTICS -->
+            <section id="logistics" class="pt-24 pb-8">
+                <h2 class="font-display text-3xl font-bold uppercase mb-12 inline-block border-b-2 border-ink pb-2">04
+                    // Logistical Specs</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+                    <!-- Resource Providers -->
+                    <div>
+                        <div class="font-mono text-xs text-neutral mb-4">> RESOURCE_PROVIDERS</div>
+                        <div class="flex flex-wrap gap-3">
+                            <span
+                                class="border-thick px-3 py-1 font-display font-bold uppercase text-lg bg-white hover:bg-ink hover:text-white transition-colors cursor-default">AWS
+                                Student Builders</span>
+                            <span
+                                class="border-thick px-3 py-1 font-display font-bold uppercase text-lg bg-white hover:bg-accent hover:text-white hover:border-accent transition-colors cursor-default">MLH</span>
+                            <span
+                                class="border-thick px-3 py-1 font-display font-bold uppercase text-lg bg-white hover:bg-indigo hover:text-white hover:border-indigo transition-colors cursor-default">OSCode</span>
+                            <span
+                                class="border-thick px-3 py-1 font-display font-bold uppercase text-lg bg-white hover:bg-ink hover:text-white transition-colors cursor-default">Atria
+                                IT</span>
+                        </div>
+                    </div>
+
+                    <!-- Requisitions Matrix -->
+                    <div>
+                        <div class="font-mono text-xs text-neutral mb-4">> ARTIFACT_REQUISITIONS</div>
+                        <div class="border-thick bg-white">
+                            <div
+                                class="grid grid-cols-4 border-b border-thick font-mono text-[10px] font-bold bg-neutral/10">
+                                <div class="col-span-1 p-2 border-r border-thick">ITEM_CODE</div>
+                                <div class="col-span-3 p-2">DESCRIPTION</div>
+                            </div>
+                            <div
+                                class="grid grid-cols-4 border-b border-structural font-sans text-sm hover:bg-bg transition-colors">
+                                <div class="col-span-1 p-3 border-r border-structural font-mono text-xs font-bold">
+                                    RW-001</div>
+                                <div class="col-span-3 p-3">Winner Swag Kits (Hardware)</div>
+                            </div>
+                            <div
+                                class="grid grid-cols-4 border-b border-structural font-sans text-sm hover:bg-bg transition-colors">
+                                <div class="col-span-1 p-3 border-r border-structural font-mono text-xs font-bold">
+                                    RW-002</div>
+                                <div class="col-span-3 p-3">MLH Physical Sticker Packs</div>
+                            </div>
+                            <div class="grid grid-cols-4 font-sans text-sm hover:bg-bg transition-colors">
+                                <div class="col-span-1 p-3 border-r border-structural font-mono text-xs font-bold">
+                                    RW-003</div>
+                                <div class="col-span-3 p-3">Cryptographic Certificates</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- EOF Footer -->
+            <div class="mt-24 pt-8 border-t-4 border-ink flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="font-display font-bold text-2xl uppercase tracking-tighter opacity-30">/// END OF DOSSIER
+                </div>
+                <div class="font-mono text-[10px] text-neutral flex gap-6">
+                    <span>SYS_TIME: <span id="clock" class="text-ink font-bold">--:--:--</span></span>
+                    <span>RENDER: <span class="text-accent font-bold">SUCCESS</span></span>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Minimal JS for functional immersion -->
+    <script>
+        // Simple real-time clock for the dashboard feel
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent =
+                now.getHours().toString().padStart(2, '0') + ':' +
+                now.getMinutes().toString().padStart(2, '0') + ':' +
+                now.getSeconds().toString().padStart(2, '0');
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Optional: Add subtle parallax to the background grid based on scroll container
+        const scrollTrack = document.getElementById('scroll-track');
+        scrollTrack.addEventListener('scroll', () => {
+            const scrolled = scrollTrack.scrollTop;
+            document.body.style.backgroundPositionY = -(scrolled * 0.1) + 'px';
+        });
+    </script>
+</body>
+
+</html>
