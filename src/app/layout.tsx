@@ -44,7 +44,7 @@ export default function RootLayout({
           <div className="crosshair ch-br"></div>
 
           <Header />
-          <main className="max-w-[1440px] mx-auto px-6 pt-8 min-h-screen">
+          <main className="max-w-[1440px] mx-auto px-6 pt-24 min-h-screen">
             {children}
           </main>
           <Footer />
