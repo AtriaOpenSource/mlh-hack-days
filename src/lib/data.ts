@@ -6,6 +6,7 @@ export interface Sponsor {
   height: number;
   description?: string;
   link?: string;
+  label?: string; // e.g., "League Sponsor", "Hackathon Sponsor"
 }
 
 export interface SponsorSection {
@@ -18,8 +19,8 @@ export interface SponsorSection {
 }
 
 export const sponsorsData = {
-  league: {
-    title: "LEAGUE_PARTNER",
+  platinum: {
+    title: "PLATINUM_SPONSORS",
     sponsors: [
       {
         name: "Major League Hacking",
@@ -27,38 +28,30 @@ export const sponsorsData = {
         alt: "MLH Logo",
         width: 1000,
         height: 1000,
+        label: "League Sponsor",
         description: "The global hacker community powering student-led innovation across thousands of institutions.",
-      }, {
+      },
+      {
         name: "HackCulture",
         src: "/hackculture.png",
         alt: "HackCulture Logo",
         width: 1000,
         height: 1000,
+        label: "Hackathon Sponsor",
       },
     ],
   },
-  platinum: {
-    title: "PLATINUM_SPONSORS",
+  gold: {
+    title: "GOLD_SPONSORS",
     sponsors: [
 
-    ],
-  },
-  ecosystem: {
-    title: "ECOSYSTEM_PARTNERS",
-    sponsors: [
-      {
-        name: "AWS",
-        src: "/aws.png",
-        alt: "AWS Logo",
-        width: 1000,
-        height: 1000,
-      },
       {
         name: "AWS SBG",
         src: "/aws-sbg.png",
         alt: "AWS SBG Logo",
         width: 1000,
         height: 1000,
+        label: "Ecosystem Partner",
       },
       {
         name: "OSCode",
@@ -66,19 +59,22 @@ export const sponsorsData = {
         alt: "OSCode Logo",
         width: 1000,
         height: 1000,
+        label: "Ecosystem Partner",
       },
     ],
   },
-  venue: {
-    title: "VENUE_PARTNER",
+  silver: {
+    title: "SILVER_SPONSORS",
     sponsors: [
       {
         name: "Atria Institute of Technology",
-        src: "/College.png", // No image, uses text
+        src: "/College.png",
         alt: "Atria Institute of Technology",
         width: 1000,
         height: 1000,
+        label: "Venue Partner",
       },
     ],
   },
 };
+

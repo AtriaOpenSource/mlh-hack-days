@@ -6,37 +6,29 @@ import { sponsorsData } from "@/lib/data";
 export default function SponsorsPage() {
   const sections = [
     {
-      key: "league",
-      data: sponsorsData.league,
-      icon: Globe,
+      key: "platinum",
+      data: sponsorsData.platinum,
+      icon: Trophy,
       colorClass: "text-accent",
       borderClass: "hover:border-accent",
       layout: "featured"
     },
     {
-      key: "platinum",
-      data: sponsorsData.platinum,
-      icon: Trophy,
+      key: "gold",
+      data: sponsorsData.gold,
+      icon: Medal,
       colorClass: "text-indigo",
       borderClass: "hover:border-indigo",
       layout: "grid",
       showAvailable: true
     },
     {
-      key: "ecosystem",
-      data: sponsorsData.ecosystem,
-      icon: Network,
+      key: "silver",
+      data: sponsorsData.silver,
+      icon: Award,
       colorClass: "text-neutral",
       borderClass: "hover:border-ink",
       layout: "small-grid"
-    },
-    {
-      key: "venue",
-      data: sponsorsData.venue,
-      icon: Database,
-      colorClass: "text-neutral",
-      borderClass: "hover:border-ink",
-      layout: "venue"
     }
   ];
 
@@ -70,7 +62,7 @@ export default function SponsorsPage() {
       <section id="partners" className="space-y-16">
         {sections.map((section) => (
           <div key={section.key}>
-            <div className={`font-mono text-[10px] ${section.colorClass} mb-4 flex items-center gap-2`}>
+            <div className={`font-mono text-[10px] ${section.colorClass} mb-4 flex items-center gap-2 uppercase tracking-widest`}>
               <section.icon className="w-3 h-3" />
               {section.data.title}
             </div>
@@ -78,7 +70,12 @@ export default function SponsorsPage() {
             {section.layout === "featured" && (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {section.data.sponsors.map((sponsor) => (
-                  <div key={sponsor.name} className={`w-full h-32 md:h-40 flex items-center justify-center p-8 group transition-colors bg-bg border border-structural ${section.borderClass} shadow-sm hover:shadow-struct`}>
+                  <div key={sponsor.name} className={`relative w-full h-32 md:h-40 flex items-center justify-center p-8 group transition-colors bg-bg border border-structural ${section.borderClass} shadow-sm hover:shadow-struct`}>
+                    {sponsor.label && (
+                      <div className="absolute top-4 right-4 px-2 py-1 border border-structural font-mono text-[8px] uppercase tracking-tighter text-neutral opacity-60 group-hover:opacity-100 group-hover:border-accent group-hover:text-accent transition-all">
+                        {sponsor.label}
+                      </div>
+                    )}
                     <Image
                       src={sponsor.src}
                       alt={sponsor.alt}
@@ -94,7 +91,12 @@ export default function SponsorsPage() {
             {section.layout === "grid" && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {section.data.sponsors.map((sponsor) => (
-                  <div key={sponsor.name} className={`w-full h-32 flex items-center justify-center p-8 group transition-colors bg-bg border border-structural ${section.borderClass} shadow-sm hover:shadow-struct`}>
+                  <div key={sponsor.name} className={`relative w-full h-32 flex items-center justify-center p-8 group transition-colors bg-bg border border-structural ${section.borderClass} shadow-sm hover:shadow-struct`}>
+                    {sponsor.label && (
+                      <div className="absolute top-3 right-3 px-2 py-0.5 border border-structural font-mono text-[8px] uppercase tracking-tighter text-neutral opacity-60 group-hover:opacity-100 group-hover:border-indigo group-hover:text-indigo transition-all">
+                        {sponsor.label}
+                      </div>
+                    )}
                     <Image
                       src={sponsor.src}
                       alt={sponsor.alt}
@@ -119,7 +121,12 @@ export default function SponsorsPage() {
             {section.layout === "small-grid" && (
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {section.data.sponsors.map((sponsor) => (
-                  <div key={sponsor.name} className={`w-full h-28 flex items-center justify-center p-6 group transition-colors bg-bg border border-structural ${section.borderClass} shadow-sm hover:shadow-struct`}>
+                  <div key={sponsor.name} className={`relative w-full h-28 flex items-center justify-center p-6 group transition-colors bg-bg border border-structural ${section.borderClass} shadow-sm hover:shadow-struct`}>
+                    {sponsor.label && (
+                      <div className="absolute top-2 right-2 px-1.5 py-0.5 border border-structural font-mono text-[7px] uppercase tracking-tighter text-neutral opacity-60 group-hover:opacity-100 group-hover:border-ink group-hover:text-ink transition-all">
+                        {sponsor.label}
+                      </div>
+                    )}
                     <Image
                       src={sponsor.src}
                       alt={sponsor.alt}
@@ -131,29 +138,10 @@ export default function SponsorsPage() {
                 ))}
               </div>
             )}
-
-            {section.layout === "venue" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {section.data.sponsors.map((sponsor) => (
-                  <div key={sponsor.name} className={`w-full h-28 flex items-center justify-center p-8 group transition-colors bg-bg border border-structural ${section.borderClass} shadow-sm hover:shadow-struct`}>
-                    {sponsor.src ? (
-                      <Image
-                        src={sponsor.src}
-                        alt={sponsor.alt}
-                        width={sponsor.width}
-                        height={sponsor.height}
-                        className="h-12 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-                      />
-                    ) : (
-                      <div className="font-display font-bold text-2xl uppercase text-ink/80 group-hover:text-ink transition-colors text-center">{sponsor.name}</div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
         ))}
       </section>
+
 
       {/* Rewards Section */}
       <section id="rewards" className="pt-16">
