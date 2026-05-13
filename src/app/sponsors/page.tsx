@@ -105,7 +105,7 @@ export default function SponsorsPage() {
                   </div>
                 ))}
                 {section.showAvailable && (
-                  <Link href="mailto:sponsor@hackdays.com" className="w-full h-32 p-6 text-center bg-bg border-2 border-dashed border-structural hover:bg-ink/[0.02] transition-colors cursor-crosshair flex flex-col justify-center items-center">
+                  <Link href="mailto:realdarshan@outlook.com" className="w-full h-32 p-6 text-center bg-bg border-2 border-dashed border-structural hover:bg-ink/[0.02] transition-colors cursor-crosshair flex flex-col justify-center items-center">
                     <div className="font-mono text-[10px] sm:text-xs text-neutral mb-1">AVAILABLE_SLOT</div>
                     <p className="font-sans text-sm text-ink font-bold uppercase flex items-center gap-2">
                       RESERVE NOW
