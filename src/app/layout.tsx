@@ -22,7 +22,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "HACK DAYS by ASoC",
-  description: "An 8-hour MLH Hack Day designed for builders, creators, and innovators. Executed jointly by AWS Student Builder Group and OSCode Atria Chapter.",
+  description:
+    "An 8-hour MLH Hack Day designed for builders, creators, and innovators. Executed jointly by AWS Student Builder Group and OSCode Atria Chapter.",
 };
 
 export default function RootLayout({
@@ -44,7 +45,7 @@ export default function RootLayout({
           <div className="crosshair ch-br"></div>
 
           <Header />
-          <main className="max-w-[1440px] mx-auto px-6 pt-24 min-h-screen">
+          <main className="max-w-[1440px] mx-auto px-6 pt-16 min-h-screen">
             {children}
           </main>
           <Footer />

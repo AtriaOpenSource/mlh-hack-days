@@ -1,4 +1,5 @@
 import { Hero3D } from "@/components/ui/hero-3d";
+import { Countdown } from "@/components/ui/countdown";
 import { ArrowRight, Terminal, Cpu, Shield, Zap } from "lucide-react";
 import Link from "next/link";
 
@@ -7,6 +8,10 @@ export default function Home() {
     <div className="space-y-24 pb-24">
       {/* 1. HERO BRIEFING SECTION */}
       <section id="briefing" className="pt-0">
+        {/* Countdown Banner */}
+        <div className="w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] border-b border-ink/10 bg-white/50 backdrop-blur-md py-4 mb-8">
+          <Countdown />
+        </div>
 
         <div className="relative w-full h-[65vh] min-h-[500px] md:h-[75vh] md:min-h-[650px] flex items-center justify-center mb-12 overflow-hidden">
           <div className="absolute inset-0 bg-grid bg-grid-pattern opacity-20 pointer-events-none z-0"></div>
