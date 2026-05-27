@@ -29,7 +29,8 @@ export const sponsorsData = {
         width: 1000,
         height: 1000,
         label: "League Sponsor",
-        description: "The global hacker community powering student-led innovation across thousands of institutions.",
+        description:
+          "The global hacker community powering student-led innovation across thousands of institutions.",
       },
       {
         name: "HackCulture",
@@ -44,7 +45,14 @@ export const sponsorsData = {
   gold: {
     title: "GOLD_SPONSORS",
     sponsors: [
-
+      {
+        name: "n8n",
+        src: "/n8n.png",
+        alt: "n8n Logo",
+        width: 1000,
+        height: 1000,
+        label: "Automation Partner",
+      },
       {
         name: "AWS SBG",
         src: "/aws-sbg.png",
@@ -77,4 +85,3 @@ export const sponsorsData = {
     ],
   },
 };
-
