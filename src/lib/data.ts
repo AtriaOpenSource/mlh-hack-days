@@ -54,6 +54,14 @@ export const sponsorsData = {
         label: "Automation Partner",
       },
       {
+        name: "HulChul",
+        src: "/HulChul.png",
+        alt: "HulChul Logo",
+        width: 1000,
+        height: 1000,
+        label: "Referral Partner",
+      },
+      {
         name: "AWS SBG",
         src: "/aws-sbg.png",
         alt: "AWS SBG Logo",
