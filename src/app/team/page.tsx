@@ -27,7 +27,7 @@ export default function TeamPage() {
       linkedin: "https://linkedin.com/in/aniket-rajj",
       image: "/Aniket.webp",
       icon: Cpu,
-    }
+    },
   ];
 
   return (
@@ -41,24 +41,31 @@ export default function TeamPage() {
           </span>
         </div>
         <h1 className="font-display font-medium text-5xl md:text-6xl tracking-tight mb-4 uppercase">
-          Command <br /><span className="text-neutral">Personnel</span>
+          Command <br />
+          <span className="text-neutral">Personnel</span>
         </h1>
         <p className="font-sans text-lg text-ink/80 max-w-2xl text-balance">
-          The core architecture team and operations handlers responsible for maintaining the system integrity of the hackathon.
+          The core architecture team and operations handlers responsible for
+          maintaining the system integrity of the hackathon.
         </p>
       </section>
 
       <section id="personnel" className="mt-16">
-        <div className="flex items-center justify-between mb-8 border-b border-structural pb-2">
+        <div className="flex items-center justify-between mb-8 border-b pb-2">
           <h2 className="font-display text-2xl font-bold uppercase">
             Core Operators
           </h2>
-          <span className="font-mono text-[10px] text-neutral hidden sm:block">ACTIVE_NODES: {operators.length}</span>
+          {/* <span className="font-mono text-[10px] text-neutral hidden sm:block">
+            ACTIVE_NODES: {operators.length}
+          </span> */}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {operators.map((op) => (
-            <div key={op.name} className="bg-bg border border-structural p-6 group transition-colors relative overflow-hidden hover:border-ink shadow-sm hover:-translate-y-1 hover:shadow-struct">
+            <div
+              key={op.name}
+              className="bg-bg border border-structural p-6 group transition-colors relative overflow-hidden hover:border-ink shadow-sm hover:-translate-y-1 hover:shadow-struct"
+            >
               <div className="absolute top-0 right-0 p-6 opacity-5">
                 <op.icon className="w-32 h-32 transform translate-x-8 -translate-y-8 text-ink" />
               </div>
@@ -81,9 +88,7 @@ export default function TeamPage() {
                   <h4 className="font-display font-bold text-xl uppercase leading-none mb-1">
                     {op.name}
                   </h4>
-                  <div className="font-mono text-xs text-indigo">
-                    {op.org}
-                  </div>
+                  <div className="font-mono text-xs text-indigo">{op.org}</div>
                 </div>
 
                 <div className="pt-4 border-t border-structural">
