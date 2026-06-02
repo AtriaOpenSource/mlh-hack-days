@@ -81,15 +81,6 @@ export const sponsorsData = {
   },
   silver: {
     title: "SILVER_SPONSORS",
-    sponsors: [
-      {
-        name: "Atria Institute of Technology",
-        src: "/College.png",
-        alt: "Atria Institute of Technology",
-        width: 1000,
-        height: 1000,
-        label: "Venue Partner",
-      },
-    ],
+    sponsors: [],
   },
 };
