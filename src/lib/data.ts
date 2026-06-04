@@ -54,6 +54,14 @@ export const sponsorsData = {
         label: "Automation Partner",
       },
       {
+        name: "Render",
+        src: "/Render.png",
+        alt: "Render Logo",
+        width: 1000,
+        height: 1000,
+        label: "Deployment Partner",
+      },
+      {
         name: "HulChul",
         src: "/HulChul.png",
         alt: "HulChul Logo",
