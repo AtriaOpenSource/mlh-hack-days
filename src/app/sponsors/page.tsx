@@ -8,6 +8,9 @@ import {
   Award,
   Download,
   ArrowRight,
+  Zap,
+  Star,
+  Gift,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -30,7 +33,6 @@ export default function SponsorsPage() {
       colorClass: "text-accent",
       borderClass: "hover:border-accent",
       layout: "grid",
-      showAvailable: true,
     },
     {
       key: "silver",
@@ -39,6 +41,7 @@ export default function SponsorsPage() {
       colorClass: "text-neutral",
       borderClass: "hover:border-ink",
       layout: "small-grid",
+      showAvailable: true,
     },
   ];
 
@@ -170,56 +173,129 @@ export default function SponsorsPage() {
       </section>
 
       {/* Rewards Section */}
-      <section id="rewards" className="pt-16">
+      <section id="rewards" className="pt-16 pb-24">
         <div className="font-mono text-xs text-neutral mb-8 flex items-center gap-2">
           <Package className="w-4 h-4" />
-          &gt; ARTIFACT_REQUISITIONS [REWARDS]
+          &gt; PRIZES_AND_REWARDS
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Top 2 */}
-          <div className="bg-ink text-bg p-10 relative overflow-hidden flex flex-col h-full shadow-struct">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle_at_top_right,rgba(249,115,22,0.3)_0%,transparent_70%)] rounded-bl-full pointer-events-none"></div>
-            <Trophy className="w-10 h-10 text-accent mb-8 relative z-10" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Top 1 */}
+          <div className="bg-ink text-bg p-10 relative overflow-hidden flex flex-col h-full shadow-struct bento-card border border-ink">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle_at_top_right,rgba(249,115,22,0.4)_0%,transparent_70%)] rounded-bl-full pointer-events-none"></div>
+            <div className="flex justify-between items-start mb-8 relative z-10">
+              <Trophy className="w-12 h-12 text-accent" />
+              <div className="font-mono text-[10px] bg-accent text-bg px-3 py-1 font-bold uppercase">
+                1ST_PLACE
+              </div>
+            </div>
             <h3 className="font-display font-bold uppercase text-3xl mb-4 relative z-10">
-              Top 2 Teams
+              Top 1 Team
             </h3>
-            <p className="font-sans text-base text-bg/80 relative z-10 mb-8 flex-grow">
-              Exclusive hardware kits provided by Major League Hacking,
-              alongside priority deployment status.
-            </p>
-            <div className="font-mono text-[10px] bg-accent text-bg px-3 py-1.5 inline-block font-bold uppercase relative z-10 w-max">
-              PRIORITY_01
+            <div className="space-y-3 mb-8 flex-grow relative z-10">
+              <div className="flex items-center gap-3 text-bg/90">
+                <Package className="w-5 h-5 text-accent" />
+                <span className="font-sans">MLH Swag Kits (worth $300)</span>
+              </div>
+              <div className="flex items-center gap-3 text-bg/90">
+                <Zap className="w-5 h-5 text-accent" />
+                <span className="font-sans">$800 Render Credits</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Top 2 */}
+          <div className="bg-white border-2 border-ink p-10 relative overflow-hidden flex flex-col h-full shadow-struct bento-card">
+            <div className="flex justify-between items-start mb-8 relative z-10">
+              <Medal className="w-12 h-12 text-indigo" />
+              <div className="font-mono text-[10px] bg-indigo text-white px-3 py-1 font-bold uppercase">
+                2ND_PLACE
+              </div>
+            </div>
+            <h3 className="font-display font-bold uppercase text-3xl mb-4 text-ink relative z-10">
+              Top 2 Team
+            </h3>
+            <div className="space-y-3 mb-8 flex-grow relative z-10 text-neutral">
+              <div className="flex items-center gap-3">
+                <Package className="w-5 h-5 text-indigo" />
+                <span className="font-sans">MLH Swag Kits (worth $300)</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Zap className="w-5 h-5 text-indigo" />
+                <span className="font-sans">$600 Render Credits</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 3rd Place */}
+          <div className="bg-white border border-structural p-10 relative overflow-hidden flex flex-col h-full shadow-sm hover:shadow-struct transition-all bento-card">
+            <div className="flex justify-between items-start mb-8 relative z-10">
+              <Award className="w-12 h-12 text-neutral" />
+              <div className="font-mono text-[10px] bg-neutral text-white px-3 py-1 font-bold uppercase">
+                3RD_PLACE
+              </div>
+            </div>
+            <h3 className="font-display font-bold uppercase text-3xl mb-4 text-ink relative z-10">
+              3rd Place
+            </h3>
+            <div className="space-y-3 mb-8 flex-grow relative z-10 text-neutral">
+              <div className="flex items-center gap-3">
+                <Zap className="w-5 h-5 text-neutral" />
+                <span className="font-sans">$500 Render Credits</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Gift className="w-5 h-5 text-neutral" />
+                <span className="font-sans">Event Swags</span>
+              </div>
             </div>
           </div>
 
           {/* Quiz Winners */}
-          <div className="bg-bg border border-structural p-10 relative overflow-hidden flex flex-col h-full shadow-sm hover:shadow-struct transition-all">
-            <Medal className="w-10 h-10 text-indigo mb-8 relative z-10" />
-            <h3 className="font-display font-bold uppercase text-3xl mb-4 relative z-10">
+          <div className="bg-bg border border-structural p-10 relative overflow-hidden flex flex-col h-full shadow-sm hover:shadow-struct transition-all bento-card">
+            <div className="flex justify-between items-start mb-8 relative z-10">
+              <Star className="w-10 h-10 text-accent" />
+              <div className="font-mono text-[10px] border border-accent text-accent px-3 py-1 font-bold uppercase">
+                BONUS
+              </div>
+            </div>
+            <h3 className="font-display font-bold uppercase text-3xl mb-4 text-ink relative z-10">
               Quiz Winners
             </h3>
-            <p className="font-sans text-base text-neutral relative z-10 mb-8 flex-grow">
-              Specialized swag packages and limited-edition merchandise for
-              dominant performance in the trivia nodes.
-            </p>
-            <div className="font-mono text-[10px] text-indigo px-3 py-1.5 inline-block font-bold uppercase relative z-10 w-max">
-              PRIORITY_02
+            <div className="space-y-3 mb-8 flex-grow relative z-10 text-neutral">
+              <div className="flex items-center gap-3">
+                <Gift className="w-5 h-5 text-accent" />
+                <span className="font-sans text-balance">
+                  Swags (by HackCulture)
+                </span>
+              </div>
             </div>
           </div>
 
           {/* All Participants */}
-          <div className="bg-bg border border-structural p-10 relative overflow-hidden transition-all flex flex-col h-full shadow-sm hover:shadow-struct">
-            <Award className="w-10 h-10 text-neutral mb-8 relative z-10" />
-            <h3 className="font-display font-bold uppercase text-3xl mb-4 relative z-10">
-              All Nodes
-            </h3>
-            <p className="font-sans text-base text-neutral relative z-10 mb-8 flex-grow">
-              Cryptographic certificates of participation and minimal physical
-              goodies to commemorate deployment.
-            </p>
-            <div className="font-mono text-[10px] text-neutral px-3 py-1.5 inline-block font-bold uppercase relative z-10 w-max">
-              BASE_ACCESS
+          <div className="lg:col-span-2 bg-white border border-structural p-10 relative overflow-hidden flex flex-col md:flex-row md:items-center gap-8 shadow-sm hover:shadow-struct transition-all bento-card">
+            <div className="flex-shrink-0">
+              <Globe className="w-16 h-16 text-indigo opacity-20" />
+            </div>
+            <div className="flex-grow">
+              <h3 className="font-display font-bold uppercase text-3xl mb-4 text-ink relative z-10">
+                All Participants
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-neutral">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-indigo rounded-full" />
+                  <span className="font-sans">Event Stickers</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-indigo rounded-full" />
+                  <span className="font-sans">$50 Render Credits</span>
+                </div>
+                <div className="flex items-center gap-3 sm:col-span-2">
+                  <div className="w-2 h-2 bg-indigo rounded-full" />
+                  <span className="font-sans font-bold">
+                    n8n Cloud Pro License
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

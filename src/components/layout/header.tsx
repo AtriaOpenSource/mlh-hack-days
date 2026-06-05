@@ -25,10 +25,10 @@ export function Header() {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { href: "/", label: "01. Briefing" },
+    { href: "/", label: "01. Home" },
     { href: "/schedule", label: "02. Timeline" },
-    { href: "/team", label: "03. Operators" },
-    { href: "/sponsors", label: "04. Logistics" },
+    { href: "/team", label: "03. Team" },
+    { href: "/sponsors", label: "04. Sponsors" },
   ];
 
   return (

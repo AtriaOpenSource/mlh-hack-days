@@ -6,14 +6,14 @@ export default function SchedulePage() {
         <div className="flex items-center gap-3 mb-6">
           <span className="w-2 h-2 bg-indigo cursor-blink rounded-none"></span>
           <span className="text-xs font-mono text-neutral tracking-widest uppercase">
-            Protocol Timeline
+            Schedule
           </span>
         </div>
         <h1 className="font-display font-medium text-5xl md:text-6xl tracking-tight mb-4 uppercase">
-          Operational <br /><span className="text-neutral">Timeline</span>
+          Event <br /><span className="text-neutral">Timeline</span>
         </h1>
         <p className="font-sans text-lg text-ink/80 max-w-2xl text-balance">
-          Strict execution schedules for Hack Days. All nodes are expected to synchronize and follow the deployment protocol accurately.
+          Follow the schedule to ensure you don't miss any sessions, workshops, or activities during Hack Days.
         </p>
       </section>
 
@@ -31,7 +31,7 @@ export default function SchedulePage() {
               Check-in & Registration
             </h3>
             <p className="font-sans text-sm text-neutral">
-              Welcome hackers, distribute kits, team formation. Sector doors open.
+              Welcome hackers, distribute kits, team formation. Doors open.
             </p>
             <div className="mt-4 flex gap-2">
               <span className="font-mono text-[10px] bg-ink/5 text-ink px-2 py-1 uppercase">Lobby</span>
@@ -66,10 +66,10 @@ export default function SchedulePage() {
               Session 1: Intro to Open Source + GitHub + AWS Deployment
             </h3>
             <p className="font-sans text-sm text-neutral">
-              Led by Darshan B (AWS Student Builder Group Leader). High-level briefing on scalable deployment architecture, cloud primitives, and repository management.
+              Led by Darshan B (AWS Student Builder Group Leader). Introduction to scalable architecture, cloud primitives, and repository management.
             </p>
             <div className="mt-4 font-mono text-[10px] bg-accent/10 text-accent px-2 py-1 inline-block font-bold uppercase">
-              MANDATORY_BRIEFING
+              Key Session
             </div>
           </div>
         </div>
@@ -87,14 +87,14 @@ export default function SchedulePage() {
               Official Hacking Hours
             </h3>
             <p className="font-sans text-sm text-bg/70 relative z-10">
-              Mainframe unlocked. Uninterrupted execution phase. Build time + mentor support on the floor. Runs until 5:00 PM.
+              Hacking starts. Build your projects and get support from mentors on the floor. Runs until 5:00 PM.
             </p>
             <div className="mt-4 flex gap-3">
               <div className="font-mono text-[10px] bg-accent text-bg px-2 py-1 inline-block font-bold uppercase relative z-10">
-                ACTIVE_HACKING
+                Hacking Hours
               </div>
               <div className="font-mono text-[10px] border border-bg/30 text-bg/70 px-2 py-1 inline-block font-bold uppercase relative z-10">
-                MENTOR_SUPPORT_AVAILABLE
+                Mentor Support
               </div>
             </div>
           </div>
@@ -115,9 +115,6 @@ export default function SchedulePage() {
             <p className="font-sans text-sm text-neutral group-hover:text-ink transition-colors">
               Fun tech quizzes with exciting swag for winners. Stay alert.
             </p>
-            <div className="mt-4 font-mono text-[9px] text-accent tracking-tighter font-black opacity-40">
-              // REWARD_MODULE_ACTIVE
-            </div>
           </div>
         </div>
 
@@ -133,18 +130,14 @@ export default function SchedulePage() {
               <div>
                 <h3 className="font-display text-xl font-bold uppercase mb-2 flex items-center gap-3">
                   Lunch Break
-                  <span className="text-[10px] bg-neutral/10 text-neutral px-2 py-0.5 font-mono animate-pulse border border-neutral/20">RECHARGING...</span>
                 </h3>
                 <p className="font-sans text-sm text-neutral/80">
-                  Systems offline for energy replenishment. Mandatory biomass intake protocol. All nodes stand by.
+                  Take a break and enjoy lunch with your team.
                 </p>
               </div>
               <div className="hidden sm:block opacity-10 group-hover:opacity-20 transition-opacity">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><rect x="1" y="6" width="18" height="12" rx="2"/><path d="M23 10v4"/><line x1="5" y1="10" x2="5" y2="14" strokeWidth="2" className="text-neutral"/></svg>
               </div>
-            </div>
-            <div className="mt-4 font-mono text-[9px] text-neutral/40 tracking-widest uppercase">
-              // energy_replenishment_in_progress
             </div>
           </div>
         </div>
@@ -160,7 +153,7 @@ export default function SchedulePage() {
               Technical Workshop
             </h3>
             <p className="font-sans text-sm text-neutral">
-              Hands-on session on emerging tech / tools (TBD).
+              Hands-on session on emerging tech and tools.
             </p>
           </div>
         </div>
@@ -180,9 +173,6 @@ export default function SchedulePage() {
             <p className="font-sans text-sm text-neutral group-hover:text-ink transition-colors">
               Fun tech quizzes with exciting swag for winners. Stay alert.
             </p>
-            <div className="mt-4 font-mono text-[9px] text-accent tracking-tighter font-black opacity-40">
-              // REWARD_MODULE_ACTIVE
-            </div>
           </div>
         </div>
 
@@ -201,9 +191,6 @@ export default function SchedulePage() {
             <p className="font-sans text-sm text-neutral group-hover:text-ink transition-colors">
               Fun tech quizzes with exciting swag for winners. Stay alert.
             </p>
-            <div className="mt-4 font-mono text-[9px] text-accent tracking-tighter font-black opacity-40">
-              // REWARD_MODULE_ACTIVE
-            </div>
           </div>
         </div>
 
@@ -220,11 +207,11 @@ export default function SchedulePage() {
               Project Judging
             </h3>
             <p className="font-sans text-sm text-neutral">
-              Demo round + evaluation by judges. Performance metrics analysis and final review of all deployed artifacts.
+              Demo round and evaluation by judges. Performance analysis and final review of all projects.
             </p>
             <div className="mt-4 flex gap-2">
               <span className="w-2 h-2 bg-indigo rounded-full animate-pulse"></span>
-              <span className="font-mono text-[9px] text-indigo uppercase font-bold">Protocol: Critical_Review</span>
+              <span className="font-mono text-[9px] text-indigo uppercase font-bold">Judging in Progress</span>
             </div>
           </div>
         </div>
@@ -240,7 +227,7 @@ export default function SchedulePage() {
               Winner Announcement & Closing Ceremony
             </h3>
             <p className="font-sans text-sm text-neutral">
-              Prizes, certificates, and vote of thanks. End of transmission.
+              Prizes, certificates, and vote of thanks. End of event.
             </p>
           </div>
         </div>
