@@ -29,6 +29,7 @@ export function Header() {
     { href: "/schedule", label: "02. Timeline" },
     { href: "/team", label: "03. Team" },
     { href: "/sponsors", label: "04. Sponsors" },
+    { href: "/faq", label: "05. FAQ" },
   ];
 
   return (
@@ -38,7 +39,8 @@ export function Header() {
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
             <div className="font-display font-bold tracking-tight leading-none text-ink text-sm">
-              HACK DAYS<br />
+              HACK DAYS
+              <br />
               <span className="text-[10px] text-neutral font-mono">
                 by Atria Summer of Code
               </span>
@@ -54,7 +56,7 @@ export function Header() {
                   "transition-all px-3 py-1",
                   pathname === link.href
                     ? "bg-ink text-bg font-bold"
-                    : "hover:text-ink hover:bg-neutral/10"
+                    : "hover:text-ink hover:bg-neutral/10",
                 )}
               >
                 {link.label}
@@ -69,7 +71,7 @@ export function Header() {
               rel="noopener noreferrer"
               className={cn(
                 "hidden sm:flex px-4 py-1.5 bg-accent text-white font-mono text-xs font-bold",
-                "hover:-translate-y-0.5 shadow-sm transition-all items-center gap-2"
+                "hover:-translate-y-0.5 shadow-sm transition-all items-center gap-2",
               )}
             >
               REGISTER
@@ -81,7 +83,11 @@ export function Header() {
               className="md:hidden p-2 text-neutral hover:text-ink transition-colors"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -91,12 +97,14 @@ export function Header() {
       <div
         className={cn(
           "fixed inset-0 z-[100] bg-ink transition-all duration-500 ease-in-out md:hidden",
-          isMenuOpen ? "translate-x-0 opacity-100 visible" : "translate-x-full opacity-0 invisible"
+          isMenuOpen
+            ? "translate-x-0 opacity-100 visible"
+            : "translate-x-full opacity-0 invisible",
         )}
       >
         {/* Background Decorative Grid */}
         <div className="absolute inset-0 bg-white opacity-[0.03] pointer-events-none" />
-        
+
         <div className="relative z-10 flex flex-col h-full p-6 pt-24">
           {/* Close Button */}
           <button
@@ -105,7 +113,7 @@ export function Header() {
           >
             <X className="w-8 h-8" />
           </button>
-          
+
           <div className="flex flex-col gap-8">
             {navLinks.map((link) => (
               <Link
@@ -113,7 +121,9 @@ export function Header() {
                 href={link.href}
                 className={cn(
                   "text-3xl font-display font-bold uppercase tracking-tighter transition-all",
-                  pathname === link.href ? "text-accent" : "text-bg hover:text-accent"
+                  pathname === link.href
+                    ? "text-accent"
+                    : "text-bg hover:text-accent",
                 )}
               >
                 {link.label.split(". ")[1]}
