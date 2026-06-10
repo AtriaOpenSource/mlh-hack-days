@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function SchedulePage() {
   return (
     <div className="space-y-16 pb-24 pt-8">
@@ -169,18 +171,67 @@ export default function SchedulePage() {
 
         {/* 01:00 PM - ChatGPT Labs (OpenAI) */}
         <div className="relative grid grid-cols-1 md:grid-cols-[120px_1fr] gap-8 md:gap-12 mb-10 pl-8 md:pl-0">
-          <div className="absolute left-[10px] md:left-[138px] top-2 w-3 h-3 bg-bg border-2 border-indigo rounded-full z-10"></div>
+          <div className="absolute left-[10px] md:left-[138px] top-2 w-4 h-4 bg-indigo border-2 border-bg rounded-full z-10 shadow-[0_0_15px_rgba(79,70,229,0.8)] animate-pulse"></div>
           <div className="font-mono text-sm font-bold text-indigo md:text-right pt-1">
             01:00 PM - 02:00 PM
           </div>
-          <div className="bg-bg border border-structural p-8 shadow-sm hover:shadow-struct hover:-translate-y-1 hover:-translate-x-1 transition-all border-l-4 border-l-indigo">
-            <h3 className="font-display text-xl font-bold uppercase mb-2">
-              ChatGPT Labs by OpenAI
-            </h3>
-            <p className="font-sans text-sm text-neutral">
-              Hands-on session hosted by OpenAI: practical prompt engineering,
-              ChatGPT integrations, and best practices.
-            </p>
+          <div className="bg-ink border-2 border-indigo text-bg p-8 shadow-[0_20px_50px_rgba(79,70,229,0.15)] hover:-translate-y-2 transition-all relative overflow-hidden group">
+            {/* Animated Gradient Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo/20 via-transparent to-accent/10 opacity-50 group-hover:opacity-80 transition-opacity"></div>
+            
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo/10 blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/5 blur-[80px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-bg/10 p-2 rounded-none border border-bg/20">
+                  <Image
+                    src="/OpenAI-black-monoblossom.png"
+                    alt="OpenAI"
+                    width={24}
+                    height={24}
+                    className="w-6 h-6 object-contain invert"
+                  />
+                </div>
+                <span className="font-mono text-[10px] text-accent tracking-[0.2em] font-bold uppercase">
+                  Featured Session
+                </span>
+              </div>
+
+              <h3 className="font-display text-2xl md:text-3xl font-bold uppercase mb-4 tracking-tight leading-none text-white">
+                ChatGPT Lab <span className="text-indigo">by OpenAI</span>
+              </h3>
+              
+              <p className="font-sans text-sm md:text-base text-bg/70 max-w-2xl mb-6 leading-relaxed">
+                ChatGPT Labs for Students is a peer-to-peer, show-and-tell style
+                session where students share how they are using ChatGPT, Image
+                Generation, and Codex in real life.
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                <div className="font-mono text-[10px] bg-indigo text-white px-3 py-1 font-bold uppercase">
+                  Official OpenAI Lab
+                </div>
+                <div className="font-mono text-[10px] border border-white/20 text-white/60 px-3 py-1 font-bold uppercase">
+                  Show & Tell
+                </div>
+                <div className="font-mono text-[10px] border border-white/20 text-white/60 px-3 py-1 font-bold uppercase">
+                  Prizes Included
+                </div>
+              </div>
+            </div>
+
+            {/* Large Faded Logo background */}
+            <div className="absolute -right-8 -bottom-8 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity pointer-events-none">
+              <Image
+                src="/OpenAI-black-monoblossom.png"
+                alt="OpenAI"
+                width={200}
+                height={200}
+                className="w-48 h-48 object-contain invert"
+              />
+            </div>
           </div>
         </div>
 

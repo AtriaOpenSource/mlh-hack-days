@@ -11,6 +11,7 @@ import {
   Zap,
   Star,
   Gift,
+  Share2,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -42,6 +43,14 @@ export default function SponsorsPage() {
       borderClass: "hover:border-ink",
       layout: "small-grid",
       showAvailable: true,
+    },
+    {
+      key: "ecosystem",
+      data: sponsorsData.ecosystem,
+      icon: Share2,
+      colorClass: "text-indigo",
+      borderClass: "hover:border-indigo",
+      layout: "small-grid",
     },
   ];
 
