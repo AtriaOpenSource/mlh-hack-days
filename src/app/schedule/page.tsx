@@ -61,7 +61,7 @@ export default function SchedulePage() {
           </div>
         </div>
 
-        {/* 09:00 AM - Session 1 */}
+        {/* 09:00 AM - Introductory Session */}
         <div className="relative grid grid-cols-1 md:grid-cols-[120px_1fr] gap-8 md:gap-12 mb-10 pl-8 md:pl-0">
           <div className="absolute left-[10px] md:left-[138px] top-2 w-3 h-3 bg-bg border-2 border-accent rounded-full z-10"></div>
           <div className="font-mono text-sm font-bold text-accent md:text-right pt-1">
@@ -69,15 +69,14 @@ export default function SchedulePage() {
           </div>
           <div className="bg-bg border border-structural p-8 shadow-sm hover:shadow-struct hover:-translate-y-1 hover:-translate-x-1 transition-all border-l-4 border-l-accent">
             <h3 className="font-display text-xl font-bold uppercase mb-2">
-              Session 1: Intro to Open Source + GitHub + AWS Deployment
+              Introductory Session
             </h3>
             <p className="font-sans text-sm text-neutral">
-              Led by Darshan B (AWS Student Builder Group Leader). Introduction
-              to scalable architecture, cloud primitives, and repository
-              management.
+              Introduction to event resources, participant handbooks, and more
+              information.
             </p>
             <div className="mt-4 font-mono text-[10px] bg-accent/10 text-accent px-2 py-1 inline-block font-bold uppercase">
-              Key Session
+              Resources & Info
             </div>
           </div>
         </div>
@@ -196,7 +195,7 @@ export default function SchedulePage() {
 
             <div className="relative z-10 flex-shrink-0 bg-white p-6 md:p-8 shadow-sm border border-indigo/5">
               <Image
-                src="/OpenAI-black-monoblossom.png"
+                src="/images/sponsors/OpenAI-black-monoblossom.png"
                 alt="OpenAI"
                 width={80}
                 height={80}

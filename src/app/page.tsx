@@ -222,15 +222,24 @@ export default function Home() {
             scalable infrastructure and intelligent systems. Registration is
             open for a limited time.
           </p>
-          <Link
-            href="https://events.mlh.io/events/13939-hack-days-by-atria-summer-of-code"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-accent text-bg px-10 py-5 font-mono text-sm uppercase tracking-widest hover:bg-white hover:text-ink transition-all flex items-center gap-3 group"
-          >
-            Register Now
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="https://events.mlh.io/events/13939-hack-days-by-atria-summer-of-code"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-accent text-bg px-10 py-5 font-mono text-sm uppercase tracking-widest hover:bg-white hover:text-ink transition-all flex items-center justify-center gap-3 group"
+            >
+              Register Now
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="/resources"
+              className="bg-transparent border border-bg/30 text-bg px-10 py-5 font-mono text-sm uppercase tracking-widest hover:bg-bg hover:text-ink transition-all flex items-center justify-center gap-3 group"
+            >
+              Participant Resources
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
       </section>
     </div>

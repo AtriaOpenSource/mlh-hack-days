@@ -9,7 +9,7 @@ export default function TeamPage() {
       role: "ORGANIZER",
       org: "AWS SBG Leader",
       linkedin: "https://linkedin.com/in/darshanb05",
-      image: "/Darshan.webp",
+      image: "/images/team/Darshan.webp",
       icon: Shield,
     },
     {
@@ -17,7 +17,7 @@ export default function TeamPage() {
       role: "ORGANIZER",
       org: "OSCode Lead",
       linkedin: "https://linkedin.com/in/pratham-is-a-dev",
-      image: "/Pratham.webp",
+      image: "/images/team/Pratham.webp",
       icon: Code2,
     },
     {
@@ -25,7 +25,7 @@ export default function TeamPage() {
       role: "MARKETING",
       org: "Marketing Lead",
       linkedin: "https://linkedin.com/in/aniket-rajj",
-      image: "/Aniket.webp",
+      image: "/images/team/Aniket.webp",
       icon: Cpu,
     },
   ];

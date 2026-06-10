@@ -72,7 +72,7 @@ export default function SponsorsPage() {
         </div>
 
         <Link
-          href="/Hack%20Days%20Sponsorship%20Brochure.pdf"
+          href="/docs/Hack%20Days%20Sponsorship%20Brochure.pdf"
           target="_blank"
           className="bg-ink text-bg px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-accent transition-colors flex items-center justify-center gap-3 group shrink-0"
         >
@@ -274,7 +274,7 @@ export default function SponsorsPage() {
               <div className="flex items-center gap-3">
                 <Gift className="w-5 h-5 text-accent" />
                 <span className="font-sans text-balance">
-                  Swags (by HackCulture)
+                  Swags (by HulChul)
                 </span>
               </div>
             </div>

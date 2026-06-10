@@ -36,7 +36,7 @@ export const sponsorsData: SponsorsData = {
     sponsors: [
       {
         name: "Major League Hacking",
-        src: "/mlh.png",
+        src: "/images/sponsors/mlh.png",
         alt: "MLH Logo",
         width: 1000,
         height: 1000,
@@ -51,7 +51,7 @@ export const sponsorsData: SponsorsData = {
     sponsors: [
       {
         name: "n8n",
-        src: "/n8n.png",
+        src: "/images/sponsors/n8n.png",
         alt: "n8n Logo",
         width: 1000,
         height: 1000,
@@ -59,7 +59,7 @@ export const sponsorsData: SponsorsData = {
       },
       {
         name: "Render",
-        src: "/Render.png",
+        src: "/images/sponsors/Render.png",
         alt: "Render Logo",
         width: 1000,
         height: 1000,
@@ -67,7 +67,7 @@ export const sponsorsData: SponsorsData = {
       },
       {
         name: "HulChul",
-        src: "/HulChul.png",
+        src: "/images/sponsors/HulChul.png",
         alt: "HulChul Logo",
         width: 1000,
         height: 1000,
@@ -75,7 +75,7 @@ export const sponsorsData: SponsorsData = {
       },
       {
         name: "Spotme",
-        src: "/Spotme.png",
+        src: "/images/sponsors/Spotme.png",
         alt: "Spotme Logo",
         width: 1000,
         height: 400,
@@ -83,7 +83,7 @@ export const sponsorsData: SponsorsData = {
       },
       {
         name: "Red Bull",
-        src: "/Red_Bull.png",
+        src: "/images/sponsors/Red_Bull.png",
         alt: "Red Bull Logo",
         width: 1000,
         height: 300,
@@ -91,7 +91,7 @@ export const sponsorsData: SponsorsData = {
       },
       {
         name: "The Atria Foundation",
-        src: "/Atria_Foundation.png",
+        src: "/images/sponsors/Atria_Foundation.png",
         alt: "The Atria Foundation Logo",
         width: 1000,
         height: 200,
@@ -104,7 +104,7 @@ export const sponsorsData: SponsorsData = {
     sponsors: [
       {
         name: "HackCulture",
-        src: "/hackculture.png",
+        src: "/images/sponsors/hackculture.png",
         alt: "HackCulture Logo",
         width: 1000,
         height: 1000,
@@ -117,7 +117,7 @@ export const sponsorsData: SponsorsData = {
     sponsors: [
       {
         name: "AWS SBG",
-        src: "/aws-sbg.png",
+        src: "/images/sponsors/aws-sbg.png",
         alt: "AWS SBG Logo",
         width: 1000,
         height: 1000,
@@ -125,7 +125,7 @@ export const sponsorsData: SponsorsData = {
       },
       {
         name: "OSCode",
-        src: "/oscode.png",
+        src: "/images/sponsors/oscode.png",
         alt: "OSCode Logo",
         width: 1000,
         height: 1000,
