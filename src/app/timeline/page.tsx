@@ -16,8 +16,8 @@ export default function SchedulePage() {
           <span className="text-neutral">Timeline</span>
         </h1>
         <p className="font-sans text-lg text-ink/80 max-w-2xl text-balance">
-          Follow the schedule to ensure you don't miss any sessions, workshops,
-          or activities during Hack Days.
+          Follow the schedule so you do not miss any sessions, workshops, or
+          activities during Hack Days.
         </p>
       </section>
 

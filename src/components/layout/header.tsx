@@ -10,11 +10,6 @@ export function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Close menu on route change
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
-
   // Prevent scrolling when menu is open
   useEffect(() => {
     if (isMenuOpen) {
@@ -25,12 +20,10 @@ export function Header() {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { href: "/", label: "01. Home" },
-    { href: "/schedule", label: "02. Timeline" },
-    { href: "/team", label: "03. Team" },
-    { href: "/sponsors", label: "04. Sponsors" },
-    { href: "/faq", label: "05. FAQ" },
-    { href: "/resources", label: "06. Resources" },
+    { href: "/gallery", label: "01. Gallery" },
+    { href: "/timeline", label: "02. Timeline" },
+    { href: "/sponsors", label: "03. Rewards & Sponsors" },
+    { href: "/contact", label: "04. Contact" },
   ];
 
   return (
@@ -53,6 +46,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => setIsMenuOpen(false)}
                 className={cn(
                   "transition-all px-3 py-1",
                   pathname === link.href
@@ -66,18 +60,6 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <a
-              href="https://events.mlh.io/events/13939-hack-days-by-atria-summer-of-code"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                "hidden sm:flex px-4 py-1.5 bg-accent text-white font-mono text-xs font-bold",
-                "hover:-translate-y-0.5 shadow-sm transition-all items-center gap-2",
-              )}
-            >
-              REGISTER
-            </a>
-
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -120,6 +102,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => setIsMenuOpen(false)}
                 className={cn(
                   "text-3xl font-display font-bold uppercase tracking-tighter transition-all",
                   pathname === link.href
@@ -136,19 +119,11 @@ export function Header() {
           </div>
 
           <div className="mt-auto pt-12 border-t border-white/10">
-            <a
-              href="https://events.mlh.io/events/13939-hack-days-by-atria-summer-of-code"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full text-center py-4 bg-accent text-white font-mono text-sm font-bold shadow-accent"
-            >
-              REGISTER FOR HACK DAYS
-            </a>
             <div className="mt-8 flex justify-between items-center font-mono text-[10px] text-bg/40">
               <span>HACK DAYS 2026</span>
               <span className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></div>
-                15 June 2026
+                Event Concluded
               </span>
             </div>
           </div>

@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "HACK DAYS by ASoC",
   description:
-    "An 8-hour MLH Hack Day designed for builders, creators, and innovators. Executed jointly by AWS Student Builder Group and OSCode Atria Chapter.",
+    "Photo gallery, timeline, rewards, and contact for Hack Days 2026 — an 8-hour MLH Hack Day executed by AWS Student Builder Group and OSCode Atria Chapter.",
 };
 
 export default function RootLayout({

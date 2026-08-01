@@ -1,306 +1,239 @@
 import {
   Package,
-  Globe,
-  Database,
-  Network,
   Trophy,
   Medal,
   Award,
-  Download,
-  ArrowRight,
-  Zap,
   Star,
   Gift,
   Share2,
+  Zap,
+  Globe,
 } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
 import { sponsorsData } from "@/lib/data";
 
-export default function SponsorsPage() {
-  const sections = [
-    {
-      key: "platinum",
-      data: sponsorsData.platinum,
-      icon: Trophy,
-      colorClass: "text-indigo",
-      borderClass: "hover:border-indigo",
-      layout: "featured",
-    },
-    {
-      key: "gold",
-      data: sponsorsData.gold,
-      icon: Medal,
-      colorClass: "text-accent",
-      borderClass: "hover:border-accent",
-      layout: "grid",
-    },
-    {
-      key: "silver",
-      data: sponsorsData.silver,
-      icon: Award,
-      colorClass: "text-neutral",
-      borderClass: "hover:border-ink",
-      layout: "small-grid",
-      showAvailable: true,
-    },
-    {
-      key: "ecosystem",
-      data: sponsorsData.ecosystem,
-      icon: Share2,
-      colorClass: "text-indigo",
-      borderClass: "hover:border-indigo",
-      layout: "small-grid",
-    },
-  ];
+const tiers = [
+  {
+    title: "PLATINUM",
+    data: sponsorsData.platinum,
+    accent: "bg-ink text-bg",
+    border: "border-ink",
+    tag: "Lead Sponsor",
+    desc: "Major League Hacking — the global hacker community powering the event.",
+  },
+  {
+    title: "GOLD",
+    data: sponsorsData.gold,
+    accent: "bg-accent text-bg",
+    border: "border-accent",
+    tag: "Featured Partners",
+    desc: "The partners who fueled the build, the food, and the fun.",
+  },
+  {
+    title: "SILVER",
+    data: sponsorsData.silver,
+    accent: "bg-neutral text-white",
+    border: "border-neutral",
+    tag: "Community",
+    desc: "Community partners helping hackers level up.",
+  },
+  {
+    title: "ECOSYSTEM",
+    data: sponsorsData.ecosystem,
+    accent: "bg-indigo text-white",
+    border: "border-indigo",
+    tag: "Co-Organizers",
+    desc: "The chapters behind the scenes making Hack Days happen.",
+  },
+];
 
+const rewards = [
+  {
+    icon: Trophy,
+    place: "1ST_PLACE",
+    title: "Top 1 Team",
+    accent: "bg-ink text-bg",
+    badge: "bg-accent text-bg",
+    items: [
+      { icon: Package, text: "MLH Swag Kits (worth $300)" },
+      { icon: Zap, text: "$800 Render Credits" },
+    ],
+  },
+  {
+    icon: Medal,
+    place: "2ND_PLACE",
+    title: "Top 2 Team",
+    accent: "bg-white text-ink border-2 border-ink",
+    badge: "bg-indigo text-white",
+    items: [
+      { icon: Package, text: "MLH Swag Kits (worth $300)" },
+      { icon: Zap, text: "$600 Render Credits" },
+    ],
+  },
+  {
+    icon: Award,
+    place: "3RD_PLACE",
+    title: "3rd Place",
+    accent: "bg-white text-ink border border-structural",
+    badge: "bg-neutral text-white",
+    items: [
+      { icon: Zap, text: "$500 Render Credits" },
+      { icon: Gift, text: "Event Swags" },
+    ],
+  },
+  {
+    icon: Star,
+    place: "BONUS",
+    title: "Quiz Winners",
+    accent: "bg-bg text-ink border border-structural",
+    badge: "border border-accent text-accent",
+    items: [{ icon: Gift, text: "Swags (by HulChul)" }],
+  },
+];
+
+export default function SponsorsPage() {
   return (
     <div className="space-y-24 pb-24 pt-8">
       {/* Intro Section */}
-      <section className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 pb-10">
+      <section className="flex flex-col md:flex-row md:items-end justify-between gap-8">
         <div>
           <div className="flex items-center gap-3 mb-6">
             <span className="w-2 h-2 bg-ink cursor-blink rounded-none"></span>
             <span className="text-xs font-mono text-neutral tracking-widest uppercase">
-              Resource Logistics
+              Post-Event
             </span>
           </div>
           <h1 className="font-display font-medium text-5xl md:text-6xl tracking-tight mb-4 uppercase">
-            Partners <br />
-            <span className="text-neutral">& Rewards</span>
+            Rewards & <br />
+            <span className="text-neutral">Sponsors</span>
           </h1>
+          <p className="font-sans text-lg text-ink/80 max-w-2xl text-balance">
+            The partners who made Hack Days possible, and the rewards every
+            hacker walked away with.
+          </p>
         </div>
 
-        <Link
-          href="/docs/Hack%20Days%20Sponsorship%20Brochure.pdf"
-          target="_blank"
-          className="bg-ink text-bg px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-accent transition-colors flex items-center justify-center gap-3 group shrink-0"
-        >
-          <Download className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
-          View Prospectus
-        </Link>
+        <div className="flex items-center gap-4 shrink-0">
+          <div className="bg-ink text-bg px-5 py-3 font-mono text-xs uppercase tracking-widest flex items-center gap-3 shadow-struct">
+            <Share2 className="w-4 h-4 text-accent" />
+            THANK YOU
+          </div>
+        </div>
       </section>
 
-      {/* Partners Grid */}
+      {/* Partners */}
       <section id="partners" className="space-y-16">
-        {sections.map((section) => (
-          <div key={section.key}>
-            <div
-              className={`font-mono text-[10px] ${section.colorClass} mb-4 flex items-center gap-2 uppercase tracking-widest`}
-            >
-              <section.icon className="w-3 h-3" />
-              {section.data.title}
-            </div>
-
-            {section.layout === "featured" && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {section.data.sponsors.map((sponsor) => (
-                  <div
-                    key={sponsor.name}
-                    className={`relative w-full h-32 md:h-40 flex items-center justify-center p-8 group transition-colors bg-bg border border-structural ${section.borderClass} shadow-sm hover:shadow-struct`}
-                  >
-                    {sponsor.label && (
-                      <div className="absolute top-4 right-4 px-2 py-1 border border-structural font-mono text-[8px] uppercase tracking-tighter text-neutral opacity-60 group-hover:opacity-100 group-hover:border-accent group-hover:text-accent transition-all">
-                        {sponsor.label}
-                      </div>
-                    )}
-                    <Image
-                      src={sponsor.src}
-                      alt={sponsor.alt}
-                      width={sponsor.width}
-                      height={sponsor.height}
-                      className="h-16 md:h-20 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {section.layout === "grid" && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {section.data.sponsors.map((sponsor) => (
-                  <div
-                    key={sponsor.name}
-                    className={`relative w-full h-32 flex items-center justify-center p-8 group transition-colors bg-bg border border-structural ${section.borderClass} shadow-sm hover:shadow-struct`}
-                  >
-                    {sponsor.label && (
-                      <div className="absolute top-3 right-3 px-2 py-0.5 border border-structural font-mono text-[8px] uppercase tracking-tighter text-neutral opacity-60 group-hover:opacity-100 group-hover:border-indigo group-hover:text-indigo transition-all">
-                        {sponsor.label}
-                      </div>
-                    )}
-                    <Image
-                      src={sponsor.src}
-                      alt={sponsor.alt}
-                      width={sponsor.width}
-                      height={sponsor.height}
-                      className="h-12 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-                    />
-                  </div>
-                ))}
-                {section.showAvailable && (
-                  <Link
-                    href="mailto:realdarshan@outlook.com"
-                    className="w-full h-32 p-6 text-center bg-bg border-2 border-dashed border-structural hover:bg-ink/[0.02] transition-colors cursor-crosshair flex flex-col justify-center items-center"
-                  >
-                    <div className="font-mono text-[10px] sm:text-xs text-neutral mb-1">
-                      AVAILABLE_SLOT
-                    </div>
-                    <p className="font-sans text-sm text-ink font-bold uppercase flex items-center gap-2">
-                      RESERVE NOW
-                      <ArrowRight className="w-3 h-3" />
-                    </p>
-                  </Link>
-                )}
-              </div>
-            )}
-
-            {section.layout === "small-grid" && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {section.data.sponsors.map((sponsor) => (
-                  <div
-                    key={sponsor.name}
-                    className={`relative w-full h-28 flex items-center justify-center p-6 group transition-colors bg-bg border border-structural ${section.borderClass} shadow-sm hover:shadow-struct`}
-                  >
-                    {sponsor.label && (
-                      <div className="absolute top-2 right-2 px-1.5 py-0.5 border border-structural font-mono text-[7px] uppercase tracking-tighter text-neutral opacity-60 group-hover:opacity-100 group-hover:border-ink group-hover:text-ink transition-all">
-                        {sponsor.label}
-                      </div>
-                    )}
-                    <Image
-                      src={sponsor.src}
-                      alt={sponsor.alt}
-                      width={sponsor.width}
-                      height={sponsor.height}
-                      className="h-10 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
-      </section>
-
-      {/* Rewards Section */}
-      <section id="rewards" className="pt-16 pb-24">
-        <div className="font-mono text-xs text-neutral mb-8 flex items-center gap-2">
-          <Package className="w-4 h-4" />
-          &gt; PRIZES_AND_REWARDS
+        <div className="flex items-center gap-3 mb-2">
+          <span className="w-2 h-2 bg-ink"></span>
+          <h2 className="font-display text-2xl font-bold uppercase tracking-widest">
+            Sponsors & Partners
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Top 1 */}
-          <div className="bg-ink text-bg p-10 relative overflow-hidden flex flex-col h-full shadow-struct bento-card border border-ink">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle_at_top_right,rgba(249,115,22,0.4)_0%,transparent_70%)] rounded-bl-full pointer-events-none"></div>
-            <div className="flex justify-between items-start mb-8 relative z-10">
-              <Trophy className="w-12 h-12 text-accent" />
-              <div className="font-mono text-[10px] bg-accent text-bg px-3 py-1 font-bold uppercase">
-                1ST_PLACE
-              </div>
-            </div>
-            <h3 className="font-display font-bold uppercase text-3xl mb-4 relative z-10">
-              Top 1 Team
-            </h3>
-            <div className="space-y-3 mb-8 flex-grow relative z-10">
-              <div className="flex items-center gap-3 text-bg/90">
-                <Package className="w-5 h-5 text-accent" />
-                <span className="font-sans">MLH Swag Kits (worth $300)</span>
-              </div>
-              <div className="flex items-center gap-3 text-bg/90">
-                <Zap className="w-5 h-5 text-accent" />
-                <span className="font-sans">$800 Render Credits</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Top 2 */}
-          <div className="bg-white border-2 border-ink p-10 relative overflow-hidden flex flex-col h-full shadow-struct bento-card">
-            <div className="flex justify-between items-start mb-8 relative z-10">
-              <Medal className="w-12 h-12 text-indigo" />
-              <div className="font-mono text-[10px] bg-indigo text-white px-3 py-1 font-bold uppercase">
-                2ND_PLACE
-              </div>
-            </div>
-            <h3 className="font-display font-bold uppercase text-3xl mb-4 text-ink relative z-10">
-              Top 2 Team
-            </h3>
-            <div className="space-y-3 mb-8 flex-grow relative z-10 text-neutral">
-              <div className="flex items-center gap-3">
-                <Package className="w-5 h-5 text-indigo" />
-                <span className="font-sans">MLH Swag Kits (worth $300)</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Zap className="w-5 h-5 text-indigo" />
-                <span className="font-sans">$600 Render Credits</span>
-              </div>
-            </div>
-          </div>
-
-          {/* 3rd Place */}
-          <div className="bg-white border border-structural p-10 relative overflow-hidden flex flex-col h-full shadow-sm hover:shadow-struct transition-all bento-card">
-            <div className="flex justify-between items-start mb-8 relative z-10">
-              <Award className="w-12 h-12 text-neutral" />
-              <div className="font-mono text-[10px] bg-neutral text-white px-3 py-1 font-bold uppercase">
-                3RD_PLACE
-              </div>
-            </div>
-            <h3 className="font-display font-bold uppercase text-3xl mb-4 text-ink relative z-10">
-              3rd Place
-            </h3>
-            <div className="space-y-3 mb-8 flex-grow relative z-10 text-neutral">
-              <div className="flex items-center gap-3">
-                <Zap className="w-5 h-5 text-neutral" />
-                <span className="font-sans">$500 Render Credits</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Gift className="w-5 h-5 text-neutral" />
-                <span className="font-sans">Event Swags</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Quiz Winners */}
-          <div className="bg-bg border border-structural p-10 relative overflow-hidden flex flex-col h-full shadow-sm hover:shadow-struct transition-all bento-card">
-            <div className="flex justify-between items-start mb-8 relative z-10">
-              <Star className="w-10 h-10 text-accent" />
-              <div className="font-mono text-[10px] border border-accent text-accent px-3 py-1 font-bold uppercase">
-                BONUS
-              </div>
-            </div>
-            <h3 className="font-display font-bold uppercase text-3xl mb-4 text-ink relative z-10">
-              Quiz Winners
-            </h3>
-            <div className="space-y-3 mb-8 flex-grow relative z-10 text-neutral">
-              <div className="flex items-center gap-3">
-                <Gift className="w-5 h-5 text-accent" />
-                <span className="font-sans text-balance">
-                  Swags (by HulChul)
+        <div className="space-y-12">
+          {tiers.map((tier) => (
+            <div key={tier.title}>
+              <div className="flex flex-wrap items-center gap-3 mb-6">
+                <span
+                  className={`font-mono text-[10px] px-2 py-1 uppercase tracking-widest ${tier.accent}`}
+                >
+                  {tier.title}
+                </span>
+                <span className="font-mono text-[10px] text-neutral uppercase tracking-widest">
+                  {tier.tag} · {tier.data.sponsors.length}
                 </span>
               </div>
+              <p className="font-sans text-sm text-neutral mb-6 max-w-xl">
+                {tier.desc}
+              </p>
+
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                {tier.data.sponsors.map((sponsor, idx) => (
+                  <div
+                    key={sponsor.name}
+                    className={`relative w-full h-28 md:h-32 flex items-center justify-center p-6 md:p-8 group bg-bg border ${tier.border} transition-all hover:-translate-y-1 hover:shadow-struct`}
+                  >
+                    {sponsor.label && (
+                      <div className="absolute top-2 right-2 px-2 py-0.5 bg-ink text-bg font-mono text-[8px] uppercase tracking-tighter opacity-60 group-hover:opacity-100 transition-opacity">
+                        {sponsor.label}
+                      </div>
+                    )}
+                    <span className="absolute bottom-2 left-2 font-mono text-[8px] text-neutral/50">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <Image
+                      src={sponsor.src}
+                      alt={sponsor.alt}
+                      width={sponsor.width}
+                      height={sponsor.height}
+                      className="h-10 md:h-12 w-auto object-contain opacity-75 group-hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Rewards */}
+      <section id="rewards" className="pt-8">
+        <div className="flex items-center gap-3 mb-10">
+          <span className="w-2 h-2 bg-accent"></span>
+          <h2 className="font-display text-2xl font-bold uppercase tracking-widest">
+            Prizes & Rewards
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {rewards.map((reward) => (
+            <div
+              key={reward.place}
+              className={`p-8 relative overflow-hidden flex flex-col h-full transition-all hover:-translate-y-1 hover:shadow-struct ${reward.accent}`}
+            >
+              <div className="flex justify-between items-start mb-6">
+                <reward.icon className="w-10 h-10 opacity-90" />
+                <div
+                  className={`font-mono text-[10px] px-2 py-1 font-bold uppercase ${reward.badge}`}
+                >
+                  {reward.place}
+                </div>
+              </div>
+              <h3 className="font-display font-bold uppercase text-2xl mb-4">
+                {reward.title}
+              </h3>
+              <div className="space-y-3 mt-auto">
+                {reward.items.map((item) => (
+                  <div key={item.text} className="flex items-center gap-3">
+                    <item.icon className="w-4 h-4 shrink-0" />
+                    <span className="font-sans text-sm">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
 
           {/* All Participants */}
-          <div className="lg:col-span-2 bg-white border border-structural p-10 relative overflow-hidden flex flex-col md:flex-row md:items-center gap-8 shadow-sm hover:shadow-struct transition-all bento-card">
+          <div className="lg:col-span-2 bg-white border border-structural p-8 relative overflow-hidden flex flex-col md:flex-row md:items-center gap-6 transition-all hover:-translate-y-1 hover:shadow-struct">
             <div className="flex-shrink-0">
               <Globe className="w-16 h-16 text-indigo opacity-20" />
             </div>
             <div className="flex-grow">
-              <h3 className="font-display font-bold uppercase text-3xl mb-4 text-ink relative z-10">
+              <h3 className="font-display font-bold uppercase text-2xl mb-4">
                 All Participants
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-neutral">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-neutral">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-indigo rounded-full" />
-                  <span className="font-sans">Event Stickers</span>
+                  <span className="font-sans text-sm">Event Stickers</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-indigo rounded-full" />
-                  <span className="font-sans">$50 Render Credits</span>
+                  <span className="font-sans text-sm">$50 Render Credits</span>
                 </div>
                 <div className="flex items-center gap-3 sm:col-span-2">
                   <div className="w-2 h-2 bg-indigo rounded-full" />
-                  <span className="font-sans font-bold">
+                  <span className="font-sans text-sm font-bold">
                     n8n Cloud Pro License
                   </span>
                 </div>

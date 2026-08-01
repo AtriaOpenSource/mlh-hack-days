@@ -12,7 +12,6 @@ export interface Sponsor {
 export interface SponsorSection {
   id: string;
   title: string;
-  icon: any; // Lucide icon name or component
   color: string;
   sponsors: Sponsor[];
   layout: "featured" | "grid" | "small-grid";
