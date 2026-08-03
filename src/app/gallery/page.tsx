@@ -1,4 +1,5 @@
-import { Camera } from "lucide-react";
+import Link from "next/link";
+import { Camera, ExternalLink } from "lucide-react";
 import { getGalleryPhotos } from "@/lib/photos";
 import { GalleryGrid } from "@/components/ui/gallery-grid";
 
@@ -37,6 +38,18 @@ export default async function GalleryPage() {
       {/* Bento Grid */}
       <section>
         <GalleryGrid photos={photos} />
+      </section>
+
+      <section className="flex justify-center pb-8">
+        <Link
+          href="https://stopme.in/event/bf1c97c6-6caf-4664-91d5-cbd63d22cd21"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 border-2 border-ink bg-ink px-6 py-3 font-mono text-xs uppercase tracking-widest text-bg transition-colors hover:bg-accent hover:text-ink"
+        >
+          View Full Album
+          <ExternalLink className="w-4 h-4" />
+        </Link>
       </section>
     </div>
   );
